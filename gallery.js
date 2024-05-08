@@ -1,103 +1,51 @@
-
-
 var imageDir = '/photos/';
-let btnGo = document.getElementById("btnGo")
+let btnGo = document.getElementById("btn");
 
-
-// Funtion attemp
 function go() {
-  
-  
   const fileInput = document.getElementById("file");
-  let gen =document.getElementById("imgf")
-  let nuevoEl=document.createElement("img")
-nuevoEl.style.width="30%"
-
-  let cont = document.getElementById("output")
-  const logfile=fileInput.files[0];
-  console.log(fileInput.value);
-  nuevoEl.src = URL.createObjectURL(logfile);
-  cont.appendChild(nuevoEl)
-
-
- const reader= new FileReader();
-   
-   
- 
- reader.addEventListener("load", ()=>{
-
-  reader.readAsDataURL(this.files[0]);
-  console.log(reader.result)
-});
-
-  
-
+  if (fileInput.files.length > 0) {
+    const reader = new FileReader();
+    reader.readAsDataURL(fileInput.files[0]);
+    reader.addEventListener("load", () => {
+      const dataURL = reader.result;
+      guardarImagen(dataURL);
+    });
+  }
 }
 
-/*
-function go() {
-    const fileInput = document.getElementById('file');
-    const outputDiv = document.getElementById('output');
-    let html = '';
-    for (const file of fileInput.files) {
-      html += '<img src="/photos/' + file.name + ' />';
-    }
-    outputDiv.textContent = html;
-  }
-  btnGo.addEventListener("click",()=>{
-    go()
-  })*/
+function mostrarImagenes() {
+  const finalDT = JSON.parse(localStorage.getItem('my-image')) || [];
+  const outputDiv = document.getElementById("output");
+  outputDiv.innerHTML = '';
+  finalDT.forEach(dataURL => {
+    let nuevoEl = document.createElement("img");
 
+    nuevoEl.classList.add('item');
+    console.log(nuevoEl.className);
 
-  //THIRD TRY
-  //---------------------------------------------------------------------------------------------------------------------------------------------
-
-
-(
-  function () {
-  var rotator = document.getElementById('rotator'); // change to match image ID
+    nuevoEl.src = dataURL;
  
-  var delayInSeconds = 5;
-  // set number of seconds delay
-  // list image names
-  var num = 0;
-  //rotor
- /* var changeImage = function () {
-      var len = images.length;
-      rotator.src =  + images[num++];
-      //cuando llegue al borde reinicie
-      if (num == len) {
-          num = 0;
-      }
-  };*/
-/*
-let imagen=document.getElementById("imgCTN")
+    outputDiv.appendChild(nuevoEl);
+  });
+}
 
-let magen =document.getElementById("magen")
-let btn= document.getElementById("btn")
-btn.addEventListener("click",function () {
-  console.log(imagen.value);
-  magen.innerHTML=imagen.value
-})
-let lista=[];
+function guardarImagen(dataURL) {
+  let imGuardada = JSON.parse(localStorage.getItem('my-image')) || [];
+  imGuardada.push(dataURL);
+  localStorage.setItem('my-image', JSON.stringify(imGuardada));
+  mostrarImagenes();
+}
+
+
+//POP UP DE LAS FOTOS
+let image =document.querySelectorAll(".item")
+  console.log(image)
+
+  image.onclick=() =>{
+     document.querySelector('.popup-imag').style.display='block';
+     document.querySelector('.popup-imag img').src =image.getAttribut('src')
+  }
+ 
 
 
 
-  let contenedor=document.getElementById("contenedor")
-   localStorage.setItem("miGato", "ricardo");
-
-  let gato = localStorage.getItem("miGato");
-contenedor.innerHTML=gato
-*/
-  let currentIndex = 0;
-const totalImages = 5;
-const changeImage = function () {
-    num +=1 % totalImages;
-    rotator.src = imageDir + num + '.jpg';
-    if (num==totalImages)
-      num=0
-};
-
-
-  setInterval(changeImage, delayInSeconds * 1000);
-})();
