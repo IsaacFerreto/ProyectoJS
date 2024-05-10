@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', 'sans-serif';
+    
+  }
+  body{
+    
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  main header h1{
+    font-size: 100px;
+color: aliceblue;
+text-shadow: 1px 1px 2px black;
+
+  }
+
+  .TestRotator img{
+    position: fixed;
+    top:0 ;left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  main{
+    position: relative;
+  }
+  .center{
+      margin-top: 20%;
+      display: flex;
+      gap: 100px;
+    }
+    .center .sep-one{
+        
+        
+        border-radius: 15%;
+        height: 400px;
+        width: 350px;
+        text-align: center;
+        background:rgba(117, 108, 108, .3) ;
+  }
+  .center .sep-one .textCNT {
+   margin-top: 10%;
+   margin-left: 20%;
+    width: 200px;
+    text-align: center;
+
+  }
+  .center .sep-two .textCNT {
+    margin-top: 10%;
+    margin-left: 20%;
+     width: 200px;
+     text-align: center;
+ 
+   }
+
+  .center .sep-one .textCNT p{
+    font-size: larger;
+    margin-top: 10%;
+    text-shadow: 1px 1px 2px white;
+
+  }
+  .center .sep-two{
+    border-radius: 15%;
+    height: 400px;
+    width: 350px;
+    text-align: center;
+    background:rgba(183, 176, 176, 0.3) ;
+}
+
+.center .sep-two .textCNT p{
+    font-size: larger;
+    margin-top: 10%;
+    text-shadow: 1px 1px 2px white;
+
+  }
+  .center .sep-two button{
+    margin-top: 28%;
+    box-shadow: 0 5px 5px black;
+    width: 120px;
+    height: 60px;
+    background:rgb(0,0,0,.9) ;
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+  }
+
+  .center .sep-two button:hover{
+  background:rgb(0,0,0,.9) ;
+  text-shadow: 1px 1px 2px white;
+  color: aliceblue;
+  border: none;
+  cursor: pointer;
+  }
+
+  .center .sep-one button{
+    margin-top: 3%;
+    box-shadow: 0 5px 5px black;
+    width: 120px;
+    height: 60px;
+    background:rgb(0,0,0,.9) ;
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+  }
+
+  .center .sep-one button:hover{
+  background:rgb(0,0,0,.9) ;
+  text-shadow: 1px 1px 2px white;
+  color: aliceblue;
+  border: none;
+  cursor: pointer;
+  }
+  .center .sep-one input{
+    display: none;
+  }
+  .cnt-newimg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 3%;
+    box-shadow: 0 5px 5px black;
+    width: 120px;
+    height: 60px;
+    background:rgb(0,0,0,.9) ;
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+  } 
+  .custom-file-upload{
+    cursor: pointer;
+  }
+
+.contBTN{
+    gap: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

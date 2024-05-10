@@ -1,19 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/brideg.css">
 </head>
+
 <body>
+    <!--Image Rotator-->
+    <div class="TestRotator">
+        <img src="/background/1.jpg" height="300" width="400" id="rotator">
+    </div>
+    <main>
+        <header>
+            <h1>Gallery</h1>
+            <p>Welcome to your gallery</p>
+        </header>
+        <div class="center">
+            <div class="sep-one">
+                <div class="textCNT">
+                    <p> you can add a new image clicking on "New Image", after you selected your photo click "Add" and
+                        your photo is going to added to the gellery</p>
+                    <!--<input id="file" placeholder="New Image" type="file">-->
+                </div>
+                <div class="contBTN">
+                    <div class="cnt-newimg">
+                        <label for="file" class="custom-file-upload">
+                            New Image
+                        </label>
+                        <input id="file" type="file">
+                    </div>
+                    <button id="btn" onclick="go()"> Add</button>
+                </div>
+            </div>
 
-    <div class="buton">
-        <input id="file" type="file" >
-        <button id="btn"  onclick="go()"> agregar</button>
-        <a href="/Gallery.html"><button>Gallery</button></a>
-      </div>
 
-
-      <script src="gallery.js"></script>
+            <div class="sep-two">
+                <div class="textCNT">
+                    <p> Or if want to go to see your photos just click on gallery!</p>
+                </div>
+                <a href="/Gallery.html"><button>Gallery</button></a>
+            </div>
+        </div>
+    </main>
+    <script src="gallery.js"></script>
+    <script src="rot.js"></script>
 </body>
+
 </html>

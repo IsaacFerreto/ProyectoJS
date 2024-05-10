@@ -1,6 +1,4 @@
-var imageDir = '/photos/';
 let btnGo = document.getElementById("btn");
-
 function go() {
   const fileInput = document.getElementById("file");
   if (fileInput.files.length > 0) {
@@ -19,12 +17,8 @@ function mostrarImagenes() {
   outputDiv.innerHTML = '';
   finalDT.forEach(dataURL => {
     let nuevoEl = document.createElement("img");
-
     nuevoEl.classList.add('item');
-    console.log(nuevoEl.className);
-
     nuevoEl.src = dataURL;
- 
     outputDiv.appendChild(nuevoEl);
   });
 }
@@ -35,17 +29,22 @@ function guardarImagen(dataURL) {
   localStorage.setItem('my-image', JSON.stringify(imGuardada));
   mostrarImagenes();
 }
-
+mostrarImagenes();
 
 //POP UP DE LAS FOTOS
-let image =document.querySelectorAll(".item")
-  console.log(image)
+window.addEventListener("load", () => {
+  let imagine = document.querySelectorAll("img")
+  console.log(imagine);
+  imagine.forEach((elemento) => {
+    elemento.addEventListener("click", () => {
+      document.querySelector('.popup-imag').style.display = 'block';
+      document.querySelector('.popup-imag img').src = elemento.getAttribute('src')
+    })
+  })
+})
 
-  image.onclick=() =>{
-     document.querySelector('.popup-imag').style.display='block';
-     document.querySelector('.popup-imag img').src =image.getAttribut('src')
-  }
- 
 
-
-
+function cerrar() {
+  document.querySelector('.popup-imag').style.display = 'none';
+}
+//----------------------------------------------------------------------------------------------
